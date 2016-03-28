@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  body: MyText
+  author_id: 1
+  url: MyString
+  like: MyString
+  created_at: 2016-03-27 23:19:50
+  updated_at: 2016-03-27 23:19:50
+
+two:
+  title: MyString
+  body: MyText
+  author_id: 1
+  url: MyString
+  like: MyString
+  created_at: 2016-03-27 23:19:50
+  updated_at: 2016-03-27 23:19:50
