@@ -1,2 +1,51 @@
 <h1>Posts#new</h1>
 <p>Find me in app/views/posts/new.html.erb</p>
+<!-- # 30 march -->
+<div class="container">
+    <div class="details">
+      <h2>Add New Post</h2>
+
+      <% if @post.errors.any? %>
+        <% @post.errors.full_messages.each do |error| %>
+          <p class="alert alert-danger"><strong>Input Error: <%= error %></strong></p>
+        <% end %>
+      <% end %>
+
+      <%= form_for @post do |post| %>
+
+        <div class="form-group">
+          <%= post.label :title %>
+          <%= post.text_field :title, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= post.label :body %>
+          <%= post.text_field :body, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= post.label :url %>
+          <%= post.text_field :url, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= post.text_field(:user_id, {prompt: "Enter Name as First Last"}) %>
+        </div>
+
+        <div class="">
+          <%= post.submit "Submit Post", class: "btn btn-primary" %>
+        </div>
+
+      <% end %>
+      <hr>
+    </div>
+</div>
+
+  <!-- this is from miniblog, worked there but needed form -->
+  <!-- <div class="newpostbanner"> -->
+  <!-- <#%= "New Posts Entry Form" %> -->
+  <!-- <div class="addauthorwrap"> -->
+  <!-- <#%= link_to "New Author - if new author redirect here to add new author", new_author_path %> -->
+  <!-- </div> -->
+  <!-- <#%= render partial: 'form' %> -->
+  <!-- </div> -->

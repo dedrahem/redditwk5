@@ -1,17 +1,35 @@
 class UsersController < ApplicationController
+  def index
+      @users = User.all
+      @posts = Post.all
+    end
+
+    def show
+      @user = User.find_by id: params[:id]
+    end
+
     def new
       @user = User.new
     end
 
     def create
-      @user = User.new params.require(:user).permit(:email, :password, :password_confirmation)
+      # instantiate
+      @user = User.new
+      # set values
+      @user.name = params[:user][:name]
+      # @author.last_name = params[:author][:last_name]
+      # save
       if @user.save
-        # sign in
-        session[:user_id] = @user.id
-        # redirect
-        redirect_to root_path, notice: "Thanks for signing up! #secrets"
+        redirect_to "/users"
       else
         render :new
-      end #if
-    end #def create
-  end  # the class
+      end
+      # redirect or render form
+    end
+
+    def delete
+      @user = User.find_by id: params[:id]
+      @user.destroy
+      redirect_to users_path
+    end
+  end
