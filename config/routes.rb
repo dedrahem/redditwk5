@@ -1,82 +1,31 @@
 Rails.application.routes.draw do
-  get 'comments/index'
 
-  get 'comments/show'
-
-  get 'comments/new'
-
-  get 'comments/edit'
-
-  get 'posts/index'
-
-  get 'posts/show'
-
-  get 'posts/new'
-
-  get 'posts/edit'
-
-  get 'authors/index'
-
-  get 'authors/show'
-
-  get 'authors/new'
-
-  get 'authors/edit'
-
-  get 'welcome/index'
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
-
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
-
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  root 'welcome#index'
+  get 'posts/new' => 'posts#new', as: :new_post # 2
+  get 'posts' => 'posts#index', as: :posts    # 3
+  post 'posts' => 'posts#create'    # 4
+  get 'posts/:id' => 'posts#show', as: :post   # 5
+  get 'posts/:post_id/comments/new' => 'comments#new', as: :new_comment # 6
+  post 'posts/:post_id/comments' => 'comments#create'#, to:redirect('posts/:id') # 7 and 8
+  patch 'posts/:id' => 'posts#update'  # 11
+  #   vote and go to updated home - not a clue what to do here,
 end
+
+# not handling the log in and redirect needs
+# other problems may be at 7 10 and 11
+#
+# 2 returns a form for content input of a new post
+# 3 display a list of all posts
+# 5 click on TITLE go to post and SHOW post by :id indentifier
+# 6 does this look right CLICK to add comment get a form to
+#      enter content for NEW COMMENT
+# 7 and 8 attempt to redirect after click to create comment
+#      and redirect return to the post page
+# 10 same route as 5 on homepage descending list click on post
+#       title and go to SHOW the post
+# 11 What is this even doing?  its, Incorrect but how to, update
+#      post at VOTE on click at thumbup for like and then go
+#      SHOW new count on HOME page.   on the notes at 10
+#  12
+#
+#

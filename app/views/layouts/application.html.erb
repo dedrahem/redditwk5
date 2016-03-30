@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Redditwk5</title>
+  <title>Miniblog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
 </head>
 <body>
+  <header>
+    <nav>
+      <%= link_to "Home", root_path %>
+      <%= link_to "Posts", posts_path %>
+      <%= link_to "New Posts", new_post_path %>
+      <%= link_to "Users", posts_path %>
+    </nav>
+  </header>
 
-<%= yield %>
+<div class="yieldwrap">
+  <%= yield %>
+</div>
 
 </body>
 </html>
