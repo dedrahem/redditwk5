@@ -14,5 +14,6 @@ class PostsController < ApplicationController
         redirect_to root_path, notice: "Thanks for signing up! #secrets"
       else
         render :new
-      end
-end
+      end  # if
+    end # def
+end  # class

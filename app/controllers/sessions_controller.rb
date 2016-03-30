@@ -14,12 +14,12 @@ class SessionsController < ApplicationController
     else
       flash.now[:alert] = "verify email or password"
       render :new
-    end
-
-  end
+    end  # if
+  end  # the create def
 
   def delete
     session.delete :user_id
     redirect_to root_path
   end
-end
+
+end # the class

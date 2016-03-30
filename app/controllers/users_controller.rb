@@ -14,4 +14,4 @@ class UsersController < ApplicationController
         render :new
       end #if
     end #def create
-  end
+  end  # the class
