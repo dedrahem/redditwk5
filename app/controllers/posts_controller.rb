@@ -1,13 +1,42 @@
 class PostsController < ApplicationController
 
 def index
-  @posts = Post.all
-
+  # @posts = Post.all
+  @posts = Post.all.order("likes desc")
 end
 
 def show
   @post = Post.find_by id: params[:id]
+  @comment = Comment.new
+  @comment.post = @post
 end
+
+def create_comment
+      # get the record
+      @post = Post.find_by id: params[:id]
+      @comment = Comment.new
+
+      @comment.body = params[:comment][:body]
+      @comment.post_id = @post.id
+      # save it
+      if @comment.save
+        redirect_to post_path(id: @post.id)
+      else
+        render :detail
+      end
+  end
+
+  def upvote
+    @post = Post.find_by id: params[:id]
+    @post.update likes: (@post.likes + 1)
+    redirect_to root_path
+  end
+
+  def downvote
+    @post = Post.find_by id: params[:id]
+    @post.update likes: (@post.likes - 1)
+    redirect_to root_path
+  end
 
 def new
   @post = Post.new

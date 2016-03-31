@@ -19,17 +19,12 @@
         </div>
 
         <div class="form-group">
-          <%= post.label :body %>
-          <%= post.text_field :body, class: "form-control" %>
-        </div>
-
-        <div class="form-group">
           <%= post.label :url %>
           <%= post.text_field :url, class: "form-control" %>
         </div>
 
-        <div class="form-group">
-          <%= post.text_field(:user_id, {prompt: "Enter Name as First Last"}) %>
+        <div class="dropdown">
+          <%= post.collection_select(:user_id, User.all.order("user_name asc"), :id, :user_name, {prompt: "First Last"}) %>
         </div>
 
         <div class="">
@@ -41,11 +36,6 @@
     </div>
 </div>
 
-  <!-- this is from miniblog, worked there but needed form -->
-  <!-- <div class="newpostbanner"> -->
-  <!-- <#%= "New Posts Entry Form" %> -->
-  <!-- <div class="addauthorwrap"> -->
-  <!-- <#%= link_to "New Author - if new author redirect here to add new author", new_author_path %> -->
-  <!-- </div> -->
-  <!-- <#%= render partial: 'form' %> -->
-  <!-- </div> -->
+  <!-- example below is from miniblog -->
+  <!-- worked there but needed form -->
+  <!-- removed it -->
