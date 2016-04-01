@@ -4,21 +4,22 @@
   <ol>
     <% @posts.each do |post| %>
       <li>
-      <div class="post">
+      <div class="posts">
         <div class="votes">
           <%= link_to upvote_post_path(id: post.id), method: :post, class: 'btn btn-default btn-sm' do %>
             <i class="glyphicon glyphicon-triangle-top"></i>
           <% end %>
-          <div class="count"><strong><%= post.likes %></strong></div>
+          <div class="count"><strong><%= post.like %></strong></div>
           <%= link_to downvote_post_path(id: post.id), method: :post, class: 'btn btn-default btn-sm' do %>
             <i class="glyphicon glyphicon-triangle-bottom"></i>
           <% end %>
-        </div>
-        <div class="links">
+        </div> <!-- close the votes div -->
+        <div class="postsindex">
           <h1><%= link_to post.title, post.url %></h1>
-          <h2><%= link_to 'comments', post_path(id: post.id) %></h2>
-        </div>
-      </div>
+          <h3><%= post.user.name %></h3>
+          <h2><%= post.body %></h2>
+        </div>  <!-- close the postsindex div -->
+      </div> <!-- close the posts div -->
       </li>
     <% end %>
   </ol>

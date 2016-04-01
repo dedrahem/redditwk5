@@ -2,4 +2,22 @@
 <p>....Find me in app/views/welcome/index.html.erb</p>
 <p>....------------------------------------------ </p>
 
-<%= link_to "Go To POSTS", posts_path, class: "btn btn-success btn-lg btn-block" %>
+<!-- <#%= link_to "Go To POSTS", posts_path, class: "btn btn-success btn-lg btn-block" %> -->
+
+<!-- < MAKE NO CHANGES HERE  > -->
+<!-- <h2><#%= link_to post.title, posts_path(:id)%></h2> -->
+<div class="root_container">
+  <ol>
+    <% @posts.each do |post| %>
+      <li>
+      <div class="posts">
+        <div class="postsindex">
+          <h2><%= link_to post.title, post_path(id: post.id)%></h2>
+          <h3><%= post.user.name %></h3>
+          <h3><%= post.like %></h3>
+        </div>  <!-- close the postsindex div -->
+      </div> <!-- close the posts div -->
+      </li>
+    <%end%>
+  </ol>
+</div>

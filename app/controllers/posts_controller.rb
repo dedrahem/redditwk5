@@ -2,7 +2,9 @@ class PostsController < ApplicationController
 
 def index
   # @posts = Post.all
-  @posts = Post.all.order("likes desc")
+  @posts = Post.all.order(like: :desc)
+  @users = User.all
+  @comments = Comment.all
 end
 
 def show
@@ -15,7 +17,6 @@ def create_comment
       # get the record
       @post = Post.find_by id: params[:id]
       @comment = Comment.new
-
       @comment.body = params[:comment][:body]
       @comment.post_id = @post.id
       # save it

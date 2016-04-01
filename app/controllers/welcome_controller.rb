@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
     def index
-      @posts = Post.all
+      @posts = Post.all.order(like: :desc)
       @post = Post.find_by id: params[:id]
     end
     def show

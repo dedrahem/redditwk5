@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
 
   def new
-    @comment = Comment.new
+    @comments = Comment.new
+    @users = User.all
+    @posts = Post.all
   end
 
     def create
