@@ -1,17 +1,16 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
 <div class="root_container">
   <ol>
-    <% @posts.each do |post| %>
+    <% @posts.each do |post| %>   <!-- # This do is ended down below -->
       <li>
       <div class="posts">
         <div class="votes">
-          <%= link_to upvote_post_path(id: post.id), method: :post, class: 'btn btn-default btn-sm' do %>
+          <div class="count"><strong><%= post.like %></strong></div>
+          <!-- <#%= link_to upvote_post_path(id: post.id), method: :post, class: 'btn btn-default btn-sm' do %> -->
+          <%= link_to upvote_post_path(id: post.id), method: :post, class: 'btn btn-default btn-sm', data: {disable: true} do %>
             <i class="glyphicon glyphicon-triangle-top"></i>
           <% end %>
-          <div class="count"><strong><%= post.like %></strong></div>
-          <%= link_to downvote_post_path(id: post.id), method: :post, class: 'btn btn-default btn-sm' do %>
-            <i class="glyphicon glyphicon-triangle-bottom"></i>
+          <%= link_to downvote_post_path(id: post.id), method: :post, class: 'btn btn-default btn-sm' do%>
+          <i class="glyphicon glyphicon-triangle-bottom"></i>
           <% end %>
         </div> <!-- close the votes div -->
         <div class="postsindex">
@@ -21,6 +20,6 @@
         </div>  <!-- close the postsindex div -->
       </div> <!-- close the posts div -->
       </li>
-    <% end %>
+    <% end %> <!-- # This is the do post end -->
   </ol>
-</div>
+</div>  <!-- # closes the container div -->

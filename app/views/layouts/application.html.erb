@@ -1,6 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to "Home", root_path, class:'navbar-brand' %>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li class="active">
+          <%= link_to "Posts", posts_path %>
+            <span class="sr-only"><%= link_to "Posts", posts_path %></span>
+          </li>
+          <li><%= link_to "New_Posts", new_post_path %> </li>
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+
+
+          <li><a href="#">LOGOUT</a></li>
+
+        </ul>
+      </div> <!-- /.navbar-collapse -->
+    </div> <!-- /.container-fluid -->
+  </nav>
+
   <title>Week5Lab Reddit</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -8,14 +42,6 @@
   <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <header>
-    <nav>
-      <%= link_to "Home", root_path %>
-      <%= link_to "Posts", posts_path %>
-      <%= link_to "New_Posts", new_post_path %>
-      <%= link_to ".Log_Out.", posts_path %>
-    </nav>
-  </header>
 
 <div class="yieldwrap">
   <%= yield %>

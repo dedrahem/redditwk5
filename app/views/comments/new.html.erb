@@ -18,6 +18,11 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :name %>
+    <%= f.collection_select :user_id, Comment.all, :id, :commentor, {prompt: true},  {class: "form-control"} %>
+  </div>
+
+  <div class="form-group">
     <%= f.submit class: "btn btn-primary"%>
   </div>
 <% end %>

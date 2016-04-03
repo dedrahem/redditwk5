@@ -1,8 +1,9 @@
 if User.count == 0
-  zacks = User.create! name: 'Zacks Equity' ,password: '12345678'
-  dom = User.create! name: 'Domenico Montanaro',password: '12345678'
-  willie = User.create! name: 'willie',password: '12345678'
-  unknown = User.create! name: 'unknown',password: '12345678'
+  zacks = User.create! name: 'Zacks Equity' , email: "zack@example.com", password: '12345678'
+  dom = User.create! name: 'Domenico Montanaro', email: "dom@npr.com", password: '12345678'
+  willie = User.create! name: 'willie', email: "willie@twincity.com", password: '12345678'
+  unknown = User.create! name: 'unknown', email: "jimbob@usgov.com", password: '12345678'
+
 end
 
 if Post.count == 0
