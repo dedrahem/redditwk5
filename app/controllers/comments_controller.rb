@@ -6,9 +6,6 @@ class CommentsController < ApplicationController
       end
     end
 
-
-
-
   def new
     @comments = Comment.new
     @users = User.all

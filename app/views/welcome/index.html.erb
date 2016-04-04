@@ -1,18 +1,26 @@
 <div class="jumbotron">
-  <h1>Welcome</h1>
+  <h2> WELCOME </h2>
 </div>
 
-<div class="root_container">
+
+
+<div class="postcontainer">
   <ol>
     <% @posts.each do |post| %>
       <li>
-      <div class="posts">
-        <div class="postsindex">
-          <h2><%= link_to post.title, post_path(id: post.id)%></h2>
-          <h3><%= post.user.name %></h3>
-          <h3><%= post.like %></h3>
-        </div>  <!-- close the postsindex div -->
-      </div> <!-- close the posts div -->
+      <div class="poststats">
+        <div class="titlestat">
+          <%= link_to post.title, post_path(id: post.id)%>
+        </div>
+        <div class="likes">
+          <%= post.like %>
+        </div>
+      </div>
+      <div class="namebody">
+        <div class="name">
+          <%= post.user.name %>
+        </div>
+      </div>
       </li>
     <%end%>
   </ol>

@@ -1,25 +1,33 @@
-<div class="root_container">
+<div class="postcontainer">
   <ol>
     <% @posts.each do |post| %>   <!-- # This do is ended down below -->
       <li>
-      <div class="posts">
-        <div class="votes">
-          <div class="count"><strong><%= post.like %></strong></div>
+      <div class="poststats">
+        <div class="titlestat"
+          <h1><%= link_to post.title, post.url %></h1>
+        </div>
           <!-- <#%= link_to upvote_post_path(id: post.id), method: :post, class: 'btn btn-default btn-sm' do %> -->
+        <div class"votestat">
           <%= link_to upvote_post_path(id: post.id), method: :post, class: 'btn btn-default btn-sm', data: {disable: true} do %>
             <i class="glyphicon glyphicon-triangle-top"></i>
           <% end %>
           <%= link_to downvote_post_path(id: post.id), method: :post, class: 'btn btn-default btn-sm' do%>
           <i class="glyphicon glyphicon-triangle-bottom"></i>
           <% end %>
-        </div> <!-- close the votes div -->
-        <div class="postsindex">
-          <h1><%= link_to post.title, post.url %></h1>
-          <h3><%= post.user.name %></h3>
-          <h2><%= post.body %></h2>
-        </div>  <!-- close the postsindex div -->
-      </div> <!-- close the posts div -->
+        </div>
+        <div class="likes">
+          <strong><%= post.like %></strong>
+        </div>
+      </div>  <!-- this closes the poststats div -->
+      <div class="namebody">
+        <div class="name">
+          <%= post.user.name %>
+        </div>
+        <div class="body">
+          <%= post.body %>
+        </div>
+      </div>  <!-- close the namebody -->
       </li>
     <% end %> <!-- # This is the do post end -->
   </ol>
-</div>  <!-- # closes the container div -->
+  </div> <!-- close the postcontainer div -->

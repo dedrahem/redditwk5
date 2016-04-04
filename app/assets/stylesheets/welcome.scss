@@ -3,40 +3,69 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .jumbotron {
-  height: 40px;
-  
 }
 
-.post_detail {
+.postcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.poststats {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    padding: 10px 10px;
-    .votes {
-      flex-direction: column;
-      .count {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 20px;
-        color: #95A5A6;
-          }
-        }
-      .links {
-        flex-direction: column;
-        font-size: 30px;
-        padding-left: 10px;
-        h1 {
-          font-size: 30px;
-          a {
-          text-decoration: none;
-          }
-        }
-        h2 {
-          font-size: 15px;
-          a {
-          color: #95A5A6;
-      }
-    }
-  }
+    align-items: flex-start;
+}
+
+.titlestat {
+    font-size: 20px;
+    padding-right: 10px;
+}
+
+h1 {
+    font-size: 15px;
+}
+
+h2 {
+    font-size: 15px;
+}
+
+.likes {
+    font-size: 15px;
+    color: black;
+    padding-left: 12px;
+}
+
+.namebody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 6px;
+  padding-bottom: 10px;
+}
+
+.name {
+  justify-content: left;
+  width: 80%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+  border-width: 2px;
+  border-color: gray;
+  text-decoration: none;
+  background-color: #ddedec;
+}
+
+.body {
+  justify-content: left;
+  width: 80%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  color: black;
+  border-width: 2px;
+  border-color: gray;
+  text-decoration: none;
+  background-color: #ddedec;
 }
