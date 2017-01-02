@@ -28,15 +28,6 @@ class CommentsController < ApplicationController
           end  # if
         end # end def create
 
-
-
-
-
-
-
-
-
-
   def index
   end
 
